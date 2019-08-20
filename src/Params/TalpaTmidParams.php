@@ -11,6 +11,12 @@ namespace Talpa\Utils\Params;
 
 class TalpaTmidParams
 {
-
-
+    public $tmid;
+    /**
+     * TalpaTmidParams constructor.
+     */
+    public function __construct($tmid)
+    {
+        $this->tmid = $tmid;
+    }
 }

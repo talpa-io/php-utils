@@ -8,4 +8,4 @@ command:
     - "composer update"
 
   test:
-    - "vendor/bin/phpunit"
+    - "vendor/bin/phpunit --bootstrap vendor/autoload.php --testdox test"
