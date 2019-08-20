@@ -34,10 +34,10 @@ class TalpaTmidFromTillParams extends TalpaTmidParams
         $this->till = $phoreInput->toTimestampUtc($till);
 
         if($from === null){
-            if($till === $currentTime){
+            if($this->till === $currentTime){
                 $from = $currentTime - 31536000;
             }else{
-                $from = $till - 3600;
+                $from = $this->till - 3600;
             }
         }
         $this->from = $phoreInput->toTimestampUtc($from);
