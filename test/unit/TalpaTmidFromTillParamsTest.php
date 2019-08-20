@@ -13,7 +13,7 @@ use PHPUnit\Framework\TestCase;
 class TalpaTmidFromTillParamsTest extends TestCase
 {
 
-    public function test__construct()
+    public function testConstruct()
     {
         //Arrange
         $talpaTmidFromTillParams = new TalpaTmidFromTillParams("M-tmock",15, 16);
@@ -30,7 +30,16 @@ class TalpaTmidFromTillParamsTest extends TestCase
         $this->assertEquals(15, $talpaTmidFromTillParams->from);
         $this->assertEqualsWithDelta($currentTime, $talpaTmidFromTillParams->till,1);
     }
-    public function test__constructOnlyTill()
+    public function testConstructOnlyFromAsDateFormat()
+    {
+        //Arrange
+        $currentTime = time();
+        $talpaTmidFromTillParams = new TalpaTmidFromTillParams("M-tmock","2019-08-19T00:00:00", null);
+        //Assert
+        $this->assertEquals(1566172800, $talpaTmidFromTillParams->from);
+        $this->assertEqualsWithDelta($currentTime, $talpaTmidFromTillParams->till,1);
+    }
+    public function testConstructOnlyTill()
     {
         //Arrange
         $talpaTmidFromTillParams = new TalpaTmidFromTillParams("M-tmock",null, 3616);
@@ -38,8 +47,15 @@ class TalpaTmidFromTillParamsTest extends TestCase
         $this->assertEquals(16, $talpaTmidFromTillParams->from);
         $this->assertEquals(3616, $talpaTmidFromTillParams->till);
     }
-
-    public function test__constructFromAndTillNotSet()
+    public function testConstructOnlyTillAsDateFormat()
+    {
+        //Arrange
+        $talpaTmidFromTillParams = new TalpaTmidFromTillParams("M-tmock",null, "2019-08-19T00:00:00");
+        //Assert
+        $this->assertEquals(1566172800-3600, $talpaTmidFromTillParams->from);
+        $this->assertEquals(1566172800, $talpaTmidFromTillParams->till);
+    }
+    public function testConstructFromAndTillNotSet()
     {
         //Arrange
         $currentTime = time();
@@ -49,7 +65,7 @@ class TalpaTmidFromTillParamsTest extends TestCase
         $this->assertEqualsWithDelta($currentTime, $talpaTmidFromTillParams->till,1);
     }
 
-    public function test__constructExceptionFromGreaterTill()
+    public function testConstructExceptionFromGreaterTill()
     {
         //Arrange
         $from = 17;
@@ -62,7 +78,7 @@ class TalpaTmidFromTillParamsTest extends TestCase
         //Act
         new TalpaTmidFromTillParams("M-tmock",$from, $till);
     }
-    public function test__constructExceptionFutureFrom()
+    public function testConstructExceptionFutureFrom()
     {
         //Arrange
         $currentTime = time();

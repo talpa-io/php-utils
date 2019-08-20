@@ -12,7 +12,7 @@ use PHPUnit\Framework\TestCase;
 
 class TalpaTmidParamsTest extends TestCase
 {
-    public function test__construct()
+    public function testConstruct()
     {
         //Arrange
         $talpaTmidParams = new TalpaTmidParams("M-tmock");
