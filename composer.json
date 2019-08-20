@@ -1,0 +1,27 @@
+{
+  "name": "talpa/php-utils",
+  "description": "utility classes",
+  "license": "MIT",
+  "homepage": "https://talpa.io",
+  "authors": [
+    { "name": "Matthias Leuffen", "email": "m@tth.es" }
+  ],
+  "repositories": [
+  ],
+  "require": {
+    "php": ">=7.1"
+  },
+  "suggest": {
+  },
+  "autoload": {
+    "psr-4": {
+      "Talpa\\Utils\\": "src/"
+    },
+    "files": [
+    ]
+  },
+  "minimum-stability": "dev",
+  "require-dev": {
+    "phpunit/phpunit": "*"
+  }
+}
