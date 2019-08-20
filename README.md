@@ -1,6 +1,5 @@
-# OTIC Format 
+# Talpa PHP Utils
 
-Open Telemetry Interchange Containers Format
 
 
 ## Example
