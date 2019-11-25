@@ -31,7 +31,7 @@ class MachineConfig
             $config = phore_file($this->pathToConfigFile)->get_yaml();
             try{
                 return phore_pluck(
-                    [$this->tmidParams->tmid, "machines", $this->tmidParams->tmid],
+                    [$this->requestedService, "machines", $this->tmidParams->tmid],
                     $config,
                     new \InvalidArgumentException("Machine " . $this->tmidParams->tmid . " is not defined in config")
                 );
