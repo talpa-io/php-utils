@@ -78,17 +78,5 @@ class TalpaTmidFromTillParamsTest extends TestCase
         //Act
         new TalpaTmidFromTillParams("M-tmock",$from, $till);
     }
-    public function testConstructExceptionFutureFrom()
-    {
-        //Arrange
-        $currentTime = time();
-        $from = $currentTime + 3600;
 
-        //Assert
-        $this->expectExceptionMessage("from: $from can´t be in the future");
-        $this->expectException(InvalidArgumentException::class);
-
-        //Act
-        new TalpaTmidFromTillParams("M-tmock",$from, $currentTime + 3601);
-    }
 }

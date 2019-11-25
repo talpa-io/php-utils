@@ -45,9 +45,6 @@ class TalpaTmidFromTillParams extends TalpaTmidParams
         if($this->from > $this->till){
             throw new \InvalidArgumentException("from: $from can´t be greater than till: $till");
         }
-        if($this->from > $currentTime){
-            throw new \InvalidArgumentException("from: $from can´t be in the future");
-        }
     }
 
 }
