@@ -1,0 +1,6 @@
+ulan:
+  machines:
+    M-tmock1:
+      push:
+        - url: "http://localhost/v1/push/test/{tmid}?from={from}&till={till}"
+

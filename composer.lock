@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "ad8a9907687a09187caf15f752b9f297",
+    "content-hash": "97310c6ab304d9539f7b385ae9553b28",
     "packages": [
         {
             "name": "phore/core",
@@ -56,6 +56,308 @@
             "description": "Phore core library",
             "homepage": "https://infracamp.org/project/phore",
             "time": "2019-11-14T16:34:17+00:00"
+        },
+        {
+            "name": "phore/di-base",
+            "version": "v2.1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/phore/phore-di-base.git",
+                "reference": "fef0410bef4d3db8a4c586e85f3c6d6bec830a1b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/phore/phore-di-base/zipball/fef0410bef4d3db8a4c586e85f3c6d6bec830a1b",
+                "reference": "fef0410bef4d3db8a4c586e85f3c6d6bec830a1b",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.0",
+                "psr/container": "^1.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "*"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "0.1-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Phore\\Di\\": "src/Di"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Matthias Leuffen",
+                    "email": "matthes@leuffen.de"
+                }
+            ],
+            "description": "Dependency Injection Base Classes and Interfaces",
+            "homepage": "https://getgismo.com",
+            "keywords": [
+                "Phore",
+                "dependency injection",
+                "di"
+            ],
+            "time": "2018-07-10T05:48:13+00:00"
+        },
+        {
+            "name": "phore/filesystem",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/phore/phore-filesystem.git",
+                "reference": "5f75dc858b225bb2b9ea902b19995c79b26b3583"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/phore/phore-filesystem/zipball/5f75dc858b225bb2b9ea902b19995c79b26b3583",
+                "reference": "5f75dc858b225bb2b9ea902b19995c79b26b3583",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*",
+                "ext-yaml": "*",
+                "phore/core": "dev-master",
+                "php": ">7.1",
+                "psr/http-message": "^1.0@dev"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^8.0@dev"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Phore\\FileSystem\\": "src/"
+                },
+                "files": [
+                    "src/functions.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Matthias Leuffen",
+                    "email": "leuffen@continue.de"
+                }
+            ],
+            "description": "Acces files layer",
+            "homepage": "http://infracamp.org/project/phore",
+            "time": "2019-10-15T23:47:27+00:00"
+        },
+        {
+            "name": "phore/http-client",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/phore/phore-http-client.git",
+                "reference": "687782e1bec3f03104c83a5095d04b9926b00c75"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/phore/phore-http-client/zipball/687782e1bec3f03104c83a5095d04b9926b00c75",
+                "reference": "687782e1bec3f03104c83a5095d04b9926b00c75",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*",
+                "ext-http": "*",
+                "ext-json": "*",
+                "phore/core": "dev-master",
+                "php": ">=7.1"
+            },
+            "require-dev": {
+                "phore/cache": "*",
+                "phore/objectstore": "*",
+                "phpunit/phpunit": "*"
+            },
+            "suggest": {
+                "phore/cache": "Use request caching"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Phore\\HttpClient\\": "src/"
+                },
+                "files": [
+                    "src/functions.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Matthias Leuffen",
+                    "email": "m@tth.es"
+                }
+            ],
+            "description": "Http client library for fast api access",
+            "homepage": "https://infracamp.org/phore/",
+            "keywords": [
+                "Keyword1",
+                "Keyword2"
+            ],
+            "time": "2019-11-14T12:19:36+00:00"
+        },
+        {
+            "name": "phore/micro-app",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/phore/phore-micro-app.git",
+                "reference": "5be369b5205fbce004ea5a54476f007637f9a8db"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/phore/phore-micro-app/zipball/5be369b5205fbce004ea5a54476f007637f9a8db",
+                "reference": "5be369b5205fbce004ea5a54476f007637f9a8db",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*",
+                "ext-yaml": "*",
+                "phore/core": "dev-master",
+                "phore/di-base": "2.1.1",
+                "php": ">7.1"
+            },
+            "require-dev": {
+                "phore/http-client": "*",
+                "phore/theme-coreui": "dev-master",
+                "phpunit/phpunit": "*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Phore\\MicroApp\\": "src/"
+                },
+                "files": [
+                    "src/functions.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Matthias Leuffen",
+                    "email": "m@tth.es"
+                }
+            ],
+            "description": "Micro framework for rest api webservices",
+            "homepage": "https://infracamp.org/phore/",
+            "time": "2019-10-02T09:46:56+00:00"
+        },
+        {
+            "name": "psr/container",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/php-fig/container.git",
+                "reference": "fc1bc363ecf887921e3897c7b1dad3587ae154eb"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/php-fig/container/zipball/fc1bc363ecf887921e3897c7b1dad3587ae154eb",
+                "reference": "fc1bc363ecf887921e3897c7b1dad3587ae154eb",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Psr\\Container\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "PHP-FIG",
+                    "homepage": "http://www.php-fig.org/"
+                }
+            ],
+            "description": "Common Container Interface (PHP FIG PSR-11)",
+            "homepage": "https://github.com/php-fig/container",
+            "keywords": [
+                "PSR-11",
+                "container",
+                "container-interface",
+                "container-interop",
+                "psr"
+            ],
+            "time": "2019-10-04T14:07:35+00:00"
+        },
+        {
+            "name": "psr/http-message",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/php-fig/http-message.git",
+                "reference": "efd67d1dc14a7ef4fc4e518e7dee91c271d524e4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/php-fig/http-message/zipball/efd67d1dc14a7ef4fc4e518e7dee91c271d524e4",
+                "reference": "efd67d1dc14a7ef4fc4e518e7dee91c271d524e4",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Psr\\Http\\Message\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "PHP-FIG",
+                    "homepage": "http://www.php-fig.org/"
+                }
+            ],
+            "description": "Common interface for HTTP messages",
+            "homepage": "https://github.com/php-fig/http-message",
+            "keywords": [
+                "http",
+                "http-message",
+                "psr",
+                "psr-7",
+                "request",
+                "response"
+            ],
+            "time": "2019-08-29T13:16:46+00:00"
         }
     ],
     "packages-dev": [
@@ -1577,7 +1879,10 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-        "phore/core": 20
+        "phore/core": 20,
+        "phore/http-client": 20,
+        "phore/filesystem": 20,
+        "phore/micro-app": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,
