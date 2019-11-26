@@ -8,24 +8,52 @@
 
 namespace Talpa\Utils\Config;
 
+use Phore\Cache\Cache;
 use Talpa\Utils\Params\TalpaTmidParams;
 
-class MachineConfig
+class TMac
 {
     private $tmacUrl;
     private $pathToConfigFile;
-    private $requestedService;
-    private $tmidParams;
 
-    public function __construct(string $tmacUrl, string $pathToConfigFile, string $requestedService, TalpaTmidParams $tmidParams)
+    public function __construct(string $tmacHost, string $localConfigPath)
     {
-        $this->tmacUrl = $tmacUrl;
-        $this->pathToConfigFile = $pathToConfigFile;
-        $this->requestedService =  $requestedService;
-        $this->tmidParams = $tmidParams;
+        $this->tmacUrl = $tmacHost;
+        $this->pathToConfigFile = $localConfigPath;
     }
 
-    public function getConfig()
+    /**
+     * Get list of all available assets
+     *
+     * @return array
+     */
+    public function listAssets() : array
+    {
+
+
+
+    }
+
+
+    /**
+     * Return errors parsing config files in tmac
+     *
+     * @return array
+     */
+    public function listErrors() : array
+    {
+
+    }
+
+
+    /**
+     * Load the configuration of single asset
+     *
+     * @param string $tmid
+     * @param string|null $serviceId
+     * @return array
+     */
+    public function getConfig(string $tmid, string $serviceId=null) : array
     {
         if(phore_file($this->pathToConfigFile)->exists()){
             $config = phore_file($this->pathToConfigFile)->get_yaml();

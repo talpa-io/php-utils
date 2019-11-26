@@ -4,8 +4,60 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "97310c6ab304d9539f7b385ae9553b28",
+    "content-hash": "94ac2a52dcad15878c5a1f1ad61c9a35",
     "packages": [
+        {
+            "name": "phore/cache",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/phore/phore-cache.git",
+                "reference": "9002366c92704becd4813291717caa8a505433d5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/phore/phore-cache/zipball/9002366c92704becd4813291717caa8a505433d5",
+                "reference": "9002366c92704becd4813291717caa8a505433d5",
+                "shasum": ""
+            },
+            "require": {
+                "phore/core": "*",
+                "phore/filesystem": "*",
+                "php": ">=7.1"
+            },
+            "require-dev": {
+                "phore/objectstore": "*",
+                "phpunit/phpunit": "*"
+            },
+            "suggest": {
+                "phore/objectstore": "Use object-store"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Phore\\Cache\\": "src/"
+                },
+                "files": [
+                    "src/functions.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Matthias Leuffen",
+                    "email": "m@tth.es"
+                }
+            ],
+            "description": "Caching library",
+            "keywords": [
+                "Keyword1",
+                "Keyword2"
+            ],
+            "time": "2019-04-29T15:09:24+00:00"
+        },
         {
             "name": "phore/core",
             "version": "dev-master",
@@ -114,12 +166,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/phore/phore-filesystem.git",
-                "reference": "5f75dc858b225bb2b9ea902b19995c79b26b3583"
+                "reference": "9710832fee21b420605f5c72d5c0654f9b7f2b2a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phore/phore-filesystem/zipball/5f75dc858b225bb2b9ea902b19995c79b26b3583",
-                "reference": "5f75dc858b225bb2b9ea902b19995c79b26b3583",
+                "url": "https://api.github.com/repos/phore/phore-filesystem/zipball/9710832fee21b420605f5c72d5c0654f9b7f2b2a",
+                "reference": "9710832fee21b420605f5c72d5c0654f9b7f2b2a",
                 "shasum": ""
             },
             "require": {
@@ -153,7 +205,7 @@
             ],
             "description": "Acces files layer",
             "homepage": "http://infracamp.org/project/phore",
-            "time": "2019-10-15T23:47:27+00:00"
+            "time": "2019-11-25T18:37:25+00:00"
         },
         {
             "name": "phore/http-client",
@@ -161,12 +213,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/phore/phore-http-client.git",
-                "reference": "687782e1bec3f03104c83a5095d04b9926b00c75"
+                "reference": "a45165f91395397a43fff80e1c56e3f94599df5b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phore/phore-http-client/zipball/687782e1bec3f03104c83a5095d04b9926b00c75",
-                "reference": "687782e1bec3f03104c83a5095d04b9926b00c75",
+                "url": "https://api.github.com/repos/phore/phore-http-client/zipball/a45165f91395397a43fff80e1c56e3f94599df5b",
+                "reference": "a45165f91395397a43fff80e1c56e3f94599df5b",
                 "shasum": ""
             },
             "require": {
@@ -209,7 +261,7 @@
                 "Keyword1",
                 "Keyword2"
             ],
-            "time": "2019-11-14T12:19:36+00:00"
+            "time": "2019-11-25T17:51:36+00:00"
         },
         {
             "name": "phore/micro-app",
@@ -554,18 +606,18 @@
             "authors": [
                 {
                     "name": "Arne Blankerts",
-                    "role": "Developer",
-                    "email": "arne@blankerts.de"
+                    "email": "arne@blankerts.de",
+                    "role": "Developer"
                 },
                 {
                     "name": "Sebastian Heuer",
-                    "role": "Developer",
-                    "email": "sebastian@phpeople.de"
+                    "email": "sebastian@phpeople.de",
+                    "role": "Developer"
                 },
                 {
                     "name": "Sebastian Bergmann",
-                    "role": "Developer",
-                    "email": "sebastian@phpunit.de"
+                    "email": "sebastian@phpunit.de",
+                    "role": "Developer"
                 }
             ],
             "description": "Library for handling version information and constraints",
@@ -922,8 +974,8 @@
             "authors": [
                 {
                     "name": "Sebastian Bergmann",
-                    "role": "lead",
-                    "email": "sebastian@phpunit.de"
+                    "email": "sebastian@phpunit.de",
+                    "role": "lead"
                 }
             ],
             "description": "Simple template engine.",
@@ -1033,16 +1085,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "dev-master",
+            "version": "8.5.x-dev",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "cc8ddbe513adf9c360c203bf769fc9700289c5ae"
+                "reference": "2aab51e038228d53777cd28872c4ebc7144989e1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/cc8ddbe513adf9c360c203bf769fc9700289c5ae",
-                "reference": "cc8ddbe513adf9c360c203bf769fc9700289c5ae",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/2aab51e038228d53777cd28872c4ebc7144989e1",
+                "reference": "2aab51e038228d53777cd28872c4ebc7144989e1",
                 "shasum": ""
             },
             "require": {
@@ -1112,7 +1164,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2019-11-24T09:29:40+00:00"
+            "time": "2019-11-25T15:12:17+00:00"
         },
         {
             "name": "sebastian/code-unit-reverse-lookup",
@@ -1721,8 +1773,8 @@
             "authors": [
                 {
                     "name": "Sebastian Bergmann",
-                    "role": "lead",
-                    "email": "sebastian@phpunit.de"
+                    "email": "sebastian@phpunit.de",
+                    "role": "lead"
                 }
             ],
             "description": "Library that helps with managing the version number of Git-hosted PHP projects",
@@ -1820,8 +1872,8 @@
             "authors": [
                 {
                     "name": "Arne Blankerts",
-                    "role": "Developer",
-                    "email": "arne@blankerts.de"
+                    "email": "arne@blankerts.de",
+                    "role": "Developer"
                 }
             ],
             "description": "A small library for converting tokenized PHP source code into XML and potentially other formats",
@@ -1882,7 +1934,8 @@
         "phore/core": 20,
         "phore/http-client": 20,
         "phore/filesystem": 20,
-        "phore/micro-app": 20
+        "phore/micro-app": 20,
+        "phore/cache": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,

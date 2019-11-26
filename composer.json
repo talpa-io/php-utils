@@ -13,7 +13,8 @@
     "phore/core": "dev-master",
     "phore/http-client": "dev-master",
     "phore/filesystem": "dev-master",
-    "phore/micro-app": "dev-master"
+    "phore/micro-app": "dev-master",
+    "phore/cache": "dev-master"
   },
   "suggest": {
   },
