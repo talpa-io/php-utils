@@ -58,7 +58,7 @@ class TMac
     {
         if(phore_file($this->localConfigPath . "$tmid.yml")->exists()){
             $config = phore_file($this->localConfigPath . "$tmid.yml")->get_yaml();
-            return ["meta" => $config["meta"], $config[$serviceId]];
+            return ["meta" => $config["meta"]] + $config[$serviceId];
         }
         if($serviceId === null){
             return phore_http_request($this->tmacHost . "/v1/assets/$tmid")->send()->getBodyJson();
