@@ -15,11 +15,8 @@ class MachineConfigTest extends TestCase
 
     public function testGetConfig()
     {
-        $machineConfig = new TMac("http://localhost/fail",
-                                           __DIR__ . "/../mock/config.yml",
-                                           "ulan",
-                                           new TalpaTmidParams("M-tmock"));
-        $config = $machineConfig->getConfig();
+        $machineConfig = new TMac("localhost", __DIR__ . "/../mock/config.yml");
+        $config = $machineConfig->getConfig("M-tmock");
         $configFile = phore_file(__DIR__ . "/../mock/config.yml")->get_yaml();
         $expected =  phore_pluck(["ulan", "machines", "M-tmock"], $configFile);
 
@@ -28,11 +25,8 @@ class MachineConfigTest extends TestCase
 
     public function testGetConfigUrl()
     {
-        $machineConfig = new TMac("http://localhost/test/M-tmock1",
-                                           __DIR__ . "/../mock/config.yml",
-                                           "ulan",
-                                           new TalpaTmidParams("M-tmock1"));
-        $config = $machineConfig->getConfig();
+        $machineConfig = new TMac("localhost", __DIR__ . "/../mock/config.yml");
+        $config = $machineConfig->getConfig("M-tmock1");
         $configFile = phore_file(__DIR__ . "/../mock/configUrl.yml")->get_yaml();
         $expected =  phore_pluck(["ulan", "machines", "M-tmock1"], $configFile);
 
@@ -41,10 +35,10 @@ class MachineConfigTest extends TestCase
 
     public function testGetConfigUrlException()
     {
-        $machineConfig = new TMac("http://localhost/test/M-tmockException", __DIR__ . "/../mock/config.yml", "ulan", new TalpaTmidParams("M-tmock1"));
+        $machineConfig = new TMac("localhost", __DIR__ . "/../mock/config.yml");
         $this->expectException(\Phore\HttpClient\Ex\PhoreHttpRequestException::class);
         $this->expectExceptionMessage("Machine M-tmockException is not defined in config");
-        $machineConfig->getConfig();
+        $machineConfig->getConfig("M-tmock-Exception");
     }
 
 }
