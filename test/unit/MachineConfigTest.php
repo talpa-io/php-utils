@@ -33,12 +33,4 @@ class MachineConfigTest extends TestCase
         $this->assertEquals($expected, $config);
     }
 
-    public function testGetConfigUrlException()
-    {
-        $machineConfig = new TMac("localhost", __DIR__ . "/../mock/config.yml");
-        $this->expectException(\Phore\HttpClient\Ex\PhoreHttpRequestException::class);
-        $this->expectExceptionMessage("Machine M-tmockException is not defined in config");
-        $machineConfig->getConfig("M-tmock-Exception");
-    }
-
 }
