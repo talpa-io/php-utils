@@ -64,9 +64,12 @@ class TMac
                     $config,
                     new \InvalidArgumentException("Machine " . $tmid . " is not defined in config")
                 );
-            } catch (\InvalidArgumentException $exception){
+            } catch (\Exception $exception){
 
             }
+        }
+        if($serviceId === null){
+            return phore_http_request($this->tmacHost . "/v1/assets/$tmid")->send()->getBodyJson();
         }
         return phore_http_request($this->tmacHost . "/v1/assets/$tmid/$serviceId")->send()->getBodyJson();
     }
