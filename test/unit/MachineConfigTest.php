@@ -16,7 +16,7 @@ class MachineConfigTest extends TestCase
     public function testGetConfig()
     {
         $machineConfig = new TMac("localhost", __DIR__ . "/../mock/config.yml");
-        $config = $machineConfig->getConfig("M-tmock");
+        $config = $machineConfig->getConfig("M-tmock", "ulan");
         $configFile = phore_file(__DIR__ . "/../mock/config.yml")->get_yaml();
         $expected =  phore_pluck(["ulan", "machines", "M-tmock"], $configFile);
 
@@ -26,7 +26,7 @@ class MachineConfigTest extends TestCase
     public function testGetConfigUrl()
     {
         $machineConfig = new TMac("localhost", __DIR__ . "/../mock/config.yml");
-        $config = $machineConfig->getConfig("M-tmock1");
+        $config = $machineConfig->getConfig("M-tmock1", "ulan");
         $configFile = phore_file(__DIR__ . "/../mock/configUrl.yml")->get_yaml();
         $expected =  phore_pluck(["ulan", "machines", "M-tmock1"], $configFile);
 

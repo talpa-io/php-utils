@@ -32,7 +32,7 @@ $app->router->get("/", function () {
     return ["fail" => "fail"];
 });
 
-$app->router->get("/v1/assets/:tmid", function (string $tmid) {
+$app->router->get("/v1/assets/:tmid/:serviceId", function (string $tmid) {
     $config = phore_file(__DIR__ . "/../test/mock/configUrl.yml")->get_yaml();
 
     return phore_pluck(
