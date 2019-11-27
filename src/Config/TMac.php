@@ -56,17 +56,9 @@ class TMac
      */
     public function getConfig(string $tmid, string $serviceId=null) : array
     {
-        if(phore_file($this->localConfigPath)->exists()){
-            $config = phore_file($this->localConfigPath)->get_yaml();
-            try{
-                return phore_pluck(
-                    [$serviceId, "machines", $tmid],
-                    $config,
-                    new \InvalidArgumentException("Machine " . $tmid . " is not defined in config")
-                );
-            } catch (\Exception $exception){
-
-            }
+        if(phore_file($this->localConfigPath . "$tmid.yml")->exists()){
+            $config = phore_file($this->localConfigPath . "$tmid.yml")->get_yaml();
+            return ["meta" => $config["meta"], $config[$tmid]];
         }
         if($serviceId === null){
             return phore_http_request($this->tmacHost . "/v1/assets/$tmid")->send()->getBodyJson();
