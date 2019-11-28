@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/phore/phore-cache.git",
-                "reference": "9002366c92704becd4813291717caa8a505433d5"
+                "reference": "ccbd03278feef7e7e39c83fdedabcf3430cc089e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phore/phore-cache/zipball/9002366c92704becd4813291717caa8a505433d5",
-                "reference": "9002366c92704becd4813291717caa8a505433d5",
+                "url": "https://api.github.com/repos/phore/phore-cache/zipball/ccbd03278feef7e7e39c83fdedabcf3430cc089e",
+                "reference": "ccbd03278feef7e7e39c83fdedabcf3430cc089e",
                 "shasum": ""
             },
             "require": {
@@ -56,7 +56,7 @@
                 "Keyword1",
                 "Keyword2"
             ],
-            "time": "2019-04-29T15:09:24+00:00"
+            "time": "2019-11-28T08:30:23+00:00"
         },
         {
             "name": "phore/core",
@@ -64,12 +64,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/phore/phore-core.git",
-                "reference": "087394cb31ba20c3d3647f68d3a28fc720302de5"
+                "reference": "2ea82eded02db9aff3009227da829066aaad485f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phore/phore-core/zipball/087394cb31ba20c3d3647f68d3a28fc720302de5",
-                "reference": "087394cb31ba20c3d3647f68d3a28fc720302de5",
+                "url": "https://api.github.com/repos/phore/phore-core/zipball/2ea82eded02db9aff3009227da829066aaad485f",
+                "reference": "2ea82eded02db9aff3009227da829066aaad485f",
                 "shasum": ""
             },
             "require": {
@@ -107,7 +107,7 @@
             ],
             "description": "Phore core library",
             "homepage": "https://infracamp.org/project/phore",
-            "time": "2019-11-14T16:34:17+00:00"
+            "time": "2019-11-27T20:59:11+00:00"
         },
         {
             "name": "phore/di-base",
@@ -166,12 +166,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/phore/phore-filesystem.git",
-                "reference": "c13329d04e213dc2bc2a596f6ae22bd7754b5f6c"
+                "reference": "9bbf9dea41536ed5cd6091c5bb925829f45c2cfa"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phore/phore-filesystem/zipball/c13329d04e213dc2bc2a596f6ae22bd7754b5f6c",
-                "reference": "c13329d04e213dc2bc2a596f6ae22bd7754b5f6c",
+                "url": "https://api.github.com/repos/phore/phore-filesystem/zipball/9bbf9dea41536ed5cd6091c5bb925829f45c2cfa",
+                "reference": "9bbf9dea41536ed5cd6091c5bb925829f45c2cfa",
                 "shasum": ""
             },
             "require": {
@@ -205,7 +205,7 @@
             ],
             "description": "Acces files layer",
             "homepage": "http://infracamp.org/project/phore",
-            "time": "2019-11-26T18:08:00+00:00"
+            "time": "2019-11-28T12:07:25+00:00"
         },
         {
             "name": "phore/http-client",
@@ -269,12 +269,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/phore/phore-micro-app.git",
-                "reference": "b768514960c86d6b6f6afa5aadb865e70c7c7429"
+                "reference": "9c3529ba050c0d70e92ef38cb21ebba1eff41955"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phore/phore-micro-app/zipball/b768514960c86d6b6f6afa5aadb865e70c7c7429",
-                "reference": "b768514960c86d6b6f6afa5aadb865e70c7c7429",
+                "url": "https://api.github.com/repos/phore/phore-micro-app/zipball/9c3529ba050c0d70e92ef38cb21ebba1eff41955",
+                "reference": "9c3529ba050c0d70e92ef38cb21ebba1eff41955",
                 "shasum": ""
             },
             "require": {
@@ -282,7 +282,8 @@
                 "ext-yaml": "*",
                 "phore/core": "dev-master",
                 "phore/di-base": "2.1.1",
-                "php": ">7.1"
+                "php": ">7.1",
+                "psr/log": "^1.1"
             },
             "require-dev": {
                 "phore/http-client": "*",
@@ -310,7 +311,7 @@
             ],
             "description": "Micro framework for rest api webservices",
             "homepage": "https://infracamp.org/phore/",
-            "time": "2019-11-26T23:33:06+00:00"
+            "time": "2019-11-27T20:06:24+00:00"
         },
         {
             "name": "psr/container",
@@ -410,6 +411,53 @@
                 "response"
             ],
             "time": "2019-08-29T13:16:46+00:00"
+        },
+        {
+            "name": "psr/log",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/php-fig/log.git",
+                "reference": "5628725d0e4d687e29575eb41f9d5ee7de33a84c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/php-fig/log/zipball/5628725d0e4d687e29575eb41f9d5ee7de33a84c",
+                "reference": "5628725d0e4d687e29575eb41f9d5ee7de33a84c",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.1.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Psr\\Log\\": "Psr/Log/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "PHP-FIG",
+                    "homepage": "http://www.php-fig.org/"
+                }
+            ],
+            "description": "Common interface for logging libraries",
+            "homepage": "https://github.com/php-fig/log",
+            "keywords": [
+                "log",
+                "psr",
+                "psr-3"
+            ],
+            "time": "2019-11-12T16:45:05+00:00"
         }
     ],
     "packages-dev": [
@@ -1089,12 +1137,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "dd8c5a3db2d0583848552a9aedd46ed174eeaf49"
+                "reference": "5b88be431c279005c1fb43a2713b4c14e271ae11"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/dd8c5a3db2d0583848552a9aedd46ed174eeaf49",
-                "reference": "dd8c5a3db2d0583848552a9aedd46ed174eeaf49",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/5b88be431c279005c1fb43a2713b4c14e271ae11",
+                "reference": "5b88be431c279005c1fb43a2713b4c14e271ae11",
                 "shasum": ""
             },
             "require": {
@@ -1164,7 +1212,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2019-11-27T08:45:56+00:00"
+            "time": "2019-11-28T08:13:52+00:00"
         },
         {
             "name": "sebastian/code-unit-reverse-lookup",
@@ -1787,12 +1835,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-ctype.git",
-                "reference": "550ebaac289296ce228a706d0867afc34687e3f4"
+                "reference": "f8f0b461be3385e56d6de3dbb5a0df24c0c275e3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-ctype/zipball/550ebaac289296ce228a706d0867afc34687e3f4",
-                "reference": "550ebaac289296ce228a706d0867afc34687e3f4",
+                "url": "https://api.github.com/repos/symfony/polyfill-ctype/zipball/f8f0b461be3385e56d6de3dbb5a0df24c0c275e3",
+                "reference": "f8f0b461be3385e56d6de3dbb5a0df24c0c275e3",
                 "shasum": ""
             },
             "require": {
@@ -1804,7 +1852,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.12-dev"
+                    "dev-master": "1.13-dev"
                 }
             },
             "autoload": {
@@ -1837,7 +1885,7 @@
                 "polyfill",
                 "portable"
             ],
-            "time": "2019-08-06T08:03:45+00:00"
+            "time": "2019-11-27T13:56:44+00:00"
         },
         {
             "name": "theseer/tokenizer",
