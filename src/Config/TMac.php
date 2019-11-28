@@ -25,12 +25,15 @@ class TMac
     /**
      * Get list of all available assets
      *
+     * @params string $service
      * @return array
      * @throws
      */
-    public function listAssets() : array
+    public function listAssets(string $service = null) : array
     {
-        return phore_http_request($this->tmacHost . "/v1/assets")->send()->getBodyJson()["assets"];
+        if($service === null)
+            return phore_http_request($this->tmacHost . "/v1/assets")->send()->getBodyJson()["assets"];
+        return phore_http_request($this->tmacHost . "/v1/assets?service=$service")->send()->getBodyJson()["assets"];
     }
 
 
