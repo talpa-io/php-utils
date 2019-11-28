@@ -16,7 +16,7 @@ class TMac
     private $tmacHost;
     private $localConfigPath;
 
-    public function __construct(string $tmacHost, string $localConfigPath)
+    public function __construct(string $tmacHost, string $localConfigPath=null)
     {
         $this->tmacHost = $tmacHost;
         $this->localConfigPath = $localConfigPath;
@@ -56,9 +56,11 @@ class TMac
      */
     public function getConfig(string $tmid, string $serviceId=null) : array
     {
-        if(phore_file($this->localConfigPath . "$tmid.yml")->exists()){
-            $config = phore_file($this->localConfigPath . "$tmid.yml")->get_yaml();
-            return ["meta" => $config["meta"]] + $config[$serviceId];
+        if ($this->localConfigPath !== null) {
+            if (phore_file($this->localConfigPath . "/$tmid.yml")->exists()) {
+                $config = phore_file($this->localConfigPath . "/$tmid.yml")->get_yaml();
+                return ["meta" => $config["meta"]] + $config[$serviceId];
+            }
         }
         if($serviceId === null){
             return phore_http_request($this->tmacHost . "/v1/assets/$tmid")->send()->getBodyJson();
