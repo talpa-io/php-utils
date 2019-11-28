@@ -33,7 +33,7 @@ class TMac
     {
         if($service === null)
             return phore_http_request($this->tmacHost . "/v1/assets")->send()->getBodyJson()["assets"];
-        return phore_http_request($this->tmacHost . "/v1/assets?service=$service")->send()->getBodyJson()["assets"];
+        return phore_http_request($this->tmacHost . "/v1/assets?service=?", [$service])->send()->getBodyJson()["assets"];
     }
 
 
