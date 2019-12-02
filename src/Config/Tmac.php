@@ -12,7 +12,7 @@ use Phore\Cache\Cache;
 use Phore\Cache\CacheItemPool;
 use Talpa\Utils\Params\TalpaTmidParams;
 
-class TMac
+class Tmac
 {
     private $tmacHost;
     private $localConfigPath;
