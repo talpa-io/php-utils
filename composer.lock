@@ -12,22 +12,25 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/phore/phore-cache.git",
-                "reference": "ccbd03278feef7e7e39c83fdedabcf3430cc089e"
+                "reference": "ad06e3fddbc4301ba73a38cc6d0479a005739d23"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phore/phore-cache/zipball/ccbd03278feef7e7e39c83fdedabcf3430cc089e",
-                "reference": "ccbd03278feef7e7e39c83fdedabcf3430cc089e",
+                "url": "https://api.github.com/repos/phore/phore-cache/zipball/ad06e3fddbc4301ba73a38cc6d0479a005739d23",
+                "reference": "ad06e3fddbc4301ba73a38cc6d0479a005739d23",
                 "shasum": ""
             },
             "require": {
                 "phore/core": "*",
-                "phore/filesystem": "*",
-                "php": ">=7.1"
+                "php": ">=7.1",
+                "psr/cache": "^1.0@dev"
             },
             "require-dev": {
+                "ext-redis": "*",
+                "phore/filesystem": "*",
                 "phore/objectstore": "*",
-                "phpunit/phpunit": "*"
+                "phpunit/phpunit": "*",
+                "psr/log": "*"
             },
             "suggest": {
                 "phore/objectstore": "Use object-store"
@@ -56,7 +59,7 @@
                 "Keyword1",
                 "Keyword2"
             ],
-            "time": "2019-11-28T08:30:23+00:00"
+            "time": "2019-12-02T16:19:21+00:00"
         },
         {
             "name": "phore/core",
@@ -166,12 +169,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/phore/phore-filesystem.git",
-                "reference": "9bbf9dea41536ed5cd6091c5bb925829f45c2cfa"
+                "reference": "9d26b0599c580577c453888a5fde9e0b4bf62bf7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phore/phore-filesystem/zipball/9bbf9dea41536ed5cd6091c5bb925829f45c2cfa",
-                "reference": "9bbf9dea41536ed5cd6091c5bb925829f45c2cfa",
+                "url": "https://api.github.com/repos/phore/phore-filesystem/zipball/9d26b0599c580577c453888a5fde9e0b4bf62bf7",
+                "reference": "9d26b0599c580577c453888a5fde9e0b4bf62bf7",
                 "shasum": ""
             },
             "require": {
@@ -205,7 +208,7 @@
             ],
             "description": "Acces files layer",
             "homepage": "http://infracamp.org/project/phore",
-            "time": "2019-11-28T12:07:25+00:00"
+            "time": "2019-11-29T11:23:50+00:00"
         },
         {
             "name": "phore/http-client",
@@ -213,12 +216,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/phore/phore-http-client.git",
-                "reference": "1d22127afcb391deaca3e8d0136d15881237238e"
+                "reference": "d975ef804c69dde4f93f11e8509e3b1296fef7d6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phore/phore-http-client/zipball/1d22127afcb391deaca3e8d0136d15881237238e",
-                "reference": "1d22127afcb391deaca3e8d0136d15881237238e",
+                "url": "https://api.github.com/repos/phore/phore-http-client/zipball/d975ef804c69dde4f93f11e8509e3b1296fef7d6",
+                "reference": "d975ef804c69dde4f93f11e8509e3b1296fef7d6",
                 "shasum": ""
             },
             "require": {
@@ -261,7 +264,7 @@
                 "Keyword1",
                 "Keyword2"
             ],
-            "time": "2019-11-26T15:34:49+00:00"
+            "time": "2019-11-29T11:17:46+00:00"
         },
         {
             "name": "phore/micro-app",
@@ -312,6 +315,52 @@
             "description": "Micro framework for rest api webservices",
             "homepage": "https://infracamp.org/phore/",
             "time": "2019-11-27T20:06:24+00:00"
+        },
+        {
+            "name": "psr/cache",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/php-fig/cache.git",
+                "reference": "b9aa2cd4dd36cec02779bee07ee9dab8bd2d07d7"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/php-fig/cache/zipball/b9aa2cd4dd36cec02779bee07ee9dab8bd2d07d7",
+                "reference": "b9aa2cd4dd36cec02779bee07ee9dab8bd2d07d7",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Psr\\Cache\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "PHP-FIG",
+                    "homepage": "http://www.php-fig.org/"
+                }
+            ],
+            "description": "Common interface for caching libraries",
+            "keywords": [
+                "cache",
+                "psr",
+                "psr-6"
+            ],
+            "time": "2019-10-04T14:04:41+00:00"
         },
         {
             "name": "psr/container",
@@ -1137,12 +1186,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "5b88be431c279005c1fb43a2713b4c14e271ae11"
+                "reference": "53725024b5b040f54b2bc83d000723d6a81598af"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/5b88be431c279005c1fb43a2713b4c14e271ae11",
-                "reference": "5b88be431c279005c1fb43a2713b4c14e271ae11",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/53725024b5b040f54b2bc83d000723d6a81598af",
+                "reference": "53725024b5b040f54b2bc83d000723d6a81598af",
                 "shasum": ""
             },
             "require": {
@@ -1212,7 +1261,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2019-11-28T08:13:52+00:00"
+            "time": "2019-12-02T06:40:16+00:00"
         },
         {
             "name": "sebastian/code-unit-reverse-lookup",

@@ -9,6 +9,7 @@
 namespace Talpa\Utils\Config;
 
 use Phore\Cache\Cache;
+use Phore\Cache\CacheItemPool;
 use Talpa\Utils\Params\TalpaTmidParams;
 
 class TMac
@@ -16,11 +17,25 @@ class TMac
     private $tmacHost;
     private $localConfigPath;
 
+    /**
+     * @var CacheItemPool
+     */
+    private $cacheItemPool = null;
+
     public function __construct(string $tmacHost, string $localConfigPath=null)
     {
         $this->tmacHost = $tmacHost;
         $this->localConfigPath = $localConfigPath;
+        $this->cacheItemPool = new CacheItemPool("null://null");
     }
+
+    public function setCache(CacheItemPool $cacheItemPool)
+    {
+        $this->cacheItemPool = $cacheItemPool;
+        $this->cacheItemPool->setDefaultExpiresAfter(3600);
+        $this->cacheItemPool->setDefaultRetryAfter(15);
+    }
+
 
     /**
      * Get list of all available assets
@@ -31,9 +46,15 @@ class TMac
      */
     public function listAssets(string $service = null) : array
     {
-        if($service === null)
-            return phore_http_request($this->tmacHost . "/v1/assets")->send()->getBodyJson()["assets"];
-        return phore_http_request($this->tmacHost . "/v1/assets?service={service}", ["service" => $service])->send()->getBodyJson()["assets"];
+        if($service === null) {
+            return $this->cacheItemPool->getItem("list_assets")->load(function () {
+                return phore_http_request($this->tmacHost . "/v1/assets")->send()->getBodyJson()["assets"];
+            });
+        }
+
+        return $this->cacheItemPool->getItem("list_assets_$service")->load(function () use ($service) {
+            return phore_http_request($this->tmacHost . "/v1/assets?service={service}", ["service" => $service])->send()->getBodyJson()["assets"];
+        });
     }
 
 
@@ -45,7 +66,9 @@ class TMac
      */
     public function listErrors() : array
     {
-        return phore_http_request($this->tmacHost . "/v1/assets")->send()->getBodyJson()["errors"];
+        return $this->cacheItemPool->getItem("list_errors")->load(function () {
+            return phore_http_request($this->tmacHost . "/v1/assets")->send()->getBodyJson()["errors"];
+        });
     }
 
 
@@ -66,8 +89,14 @@ class TMac
             }
         }
         if($serviceId === null){
-            return phore_http_request($this->tmacHost . "/v1/assets/$tmid")->send()->getBodyJson();
+            return $this->cacheItemPool->getItem("assets_$tmid")->load(function () use ($tmid) {
+                return phore_http_request($this->tmacHost . "/v1/assets/$tmid")->send()->getBodyJson();
+            });
+
         }
-        return phore_http_request($this->tmacHost . "/v1/assets/$tmid/$serviceId")->send()->getBodyJson();
+        return $this->cacheItemPool->getItem("assets_{$tmid}_{$serviceId}")->load(function () use ($tmid, $serviceId) {
+            return phore_http_request($this->tmacHost . "/v1/assets/$tmid/$serviceId")->send()->getBodyJson();
+        });
+
     }
 }
