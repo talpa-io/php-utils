@@ -10,11 +10,11 @@
   ],
   "require": {
     "php": ">=7.1",
-    "phore/core": "dev-master",
-    "phore/http-client": "dev-master",
-    "phore/filesystem": "dev-master",
-    "phore/micro-app": "dev-master",
-    "phore/cache": "dev-master"
+    "phore/core": "*",
+    "phore/http-client": "*",
+    "phore/filesystem": "*",
+    "phore/micro-app": "*",
+    "phore/cache": "*"
   },
   "suggest": {
   },
