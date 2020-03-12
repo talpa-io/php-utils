@@ -1,0 +1,18 @@
+{
+  "assets": [
+    {
+      "tmid": "M-tmock1",
+      "meta": {
+        "desc": "test machine"
+      },
+      "foo": "bar"
+    },
+    {
+      "tmid": "M-tmock2",
+      "meta": {
+        "desc": "test machine"
+      },
+      "foo": "bar"
+    }
+  ]
+}
