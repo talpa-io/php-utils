@@ -47,7 +47,7 @@ $app->router->get("/v1/assets/:tmid/:clientId", function (string $tmid, $clientI
 
 $app->router->get("/v1/assets", function (Request $request) {
     parse_str($request->queryString, $queryparams);
-    $clientId = phore_pluck('clientId', $queryparams, "");
+    $clientId = phore_pluck('service', $queryparams, "");
     if(in_array($clientId, ['Test', ""])) {
         return phore_file("/opt/test/mock/allAssets$clientId.json")->get_json();
     }

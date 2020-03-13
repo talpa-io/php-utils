@@ -77,7 +77,7 @@ class Tmac
         $clientId = $this->clientId;
 
         return $this->cacheItemPool->getItem("list_assets_$clientId")->load(function () use ($clientId) {
-            return phore_http_request($this->tmacHost . "/v1/assets?clientId={clientId}", ["clientId" => $clientId])->send()->getBodyJson()["assets"];
+            return phore_http_request($this->tmacHost . "/v1/assets?service={clientId}", ["clientId" => $clientId])->send()->getBodyJson()["assets"];
         });
     }
 
