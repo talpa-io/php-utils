@@ -18,7 +18,7 @@ use Talpa\Utils\Params\TalpaTmidParams;
 class Tmac
 {
     private $tmacHost;
-    private $serviceName;
+    private $clientId;
     private $localConfigPath;
 
     /**
@@ -36,7 +36,7 @@ class Tmac
     public function __construct(string $uri)
     {
         $uriParts = phore_parse_url($uri);
-        $this->serviceName = $uriParts->getQueryVal('service', new \InvalidArgumentException("Param 'service' not defined in tmac URI '$uri'"));
+        $this->clientId = $uriParts->getQueryVal('clientId', new \InvalidArgumentException("Param 'clientId' not defined in tmac URI '$uri'"));
         switch ($uriParts->scheme) {
             case "file":
                 $this->localConfigPath = $uriParts->path;
@@ -63,21 +63,21 @@ class Tmac
     /**
      * Get list of all available assets
      *
-     * @params string $service
+     * @params string $clientId
      * @return array
      * @throws
      */
-    public function listAssets(string $service =null) : array
+    public function listAssets(string $clientId = null) : array
     {
-        if($service === "meta") {
+        if($clientId === "meta") {
             return $this->cacheItemPool->getItem("list_assets")->load(function () {
                 return phore_http_request($this->tmacHost . "/v1/assets")->send()->getBodyJson()["assets"];
             });
         }
-        $service = $this->serviceName;
+        $clientId = $this->clientId;
 
-        return $this->cacheItemPool->getItem("list_assets_$service")->load(function () use ($service) {
-            return phore_http_request($this->tmacHost . "/v1/assets?service={service}", ["service" => $service])->send()->getBodyJson()["assets"];
+        return $this->cacheItemPool->getItem("list_assets_$clientId")->load(function () use ($clientId) {
+            return phore_http_request($this->tmacHost . "/v1/assets?clientId={clientId}", ["clientId" => $clientId])->send()->getBodyJson()["assets"];
         });
     }
 
@@ -104,22 +104,35 @@ class Tmac
      * @return array
      * @throws
      */
-    public function getConfig(string $tmid, string $serviceId=null) : array
+    public function getConfig(string $tmid, string $clientId=null) : array
     {
-        if ($this->localConfigPath !== null) {
-            if (phore_file($this->localConfigPath . "/$tmid.yml")->exists()) {
-                $config = phore_file($this->localConfigPath . "/$tmid.yml")->get_yaml();
-                return ["meta" => $config["meta"]] + $config[$serviceId];
-            }
+        //take clientId from URI if not explicitly specified
+        if($clientId === null){
+            $clientId=$this->clientId;
         }
-        if($serviceId === null){
+        //Is a local config path set? then take that (URI = file://...)
+        if ($this->localConfigPath !== null) {
+            try {
+                $configFile = phore_file($this->localConfigPath . "/$tmid.yml")->get_yaml();
+            } catch (\Exception $ex) {
+                throw $ex;
+            }
+            //config for all clients? else => config for $this->clientID+Meta
+            if($clientId === "all") {
+               return $configFile;
+            }
+            $meta = phore_pluck('meta', $configFile, []);
+            $clientConfig = phore_pluck($clientId, $configFile, new \InvalidArgumentException("Machine '$tmid' has no config for '$clientId'."));
+            return ["meta" => $meta] + $clientConfig;
+        }
+        //URI is http
+        if($clientId === "all"){
             return $this->cacheItemPool->getItem("assets_$tmid")->load(function () use ($tmid) {
                 return phore_http_request($this->tmacHost . "/v1/assets/$tmid")->send()->getBodyJson();
             });
-
         }
-        return $this->cacheItemPool->getItem("assets_{$tmid}_{$serviceId}")->load(function () use ($tmid, $serviceId) {
-            return phore_http_request($this->tmacHost . "/v1/assets/$tmid/$serviceId")->send()->getBodyJson();
+        return $this->cacheItemPool->getItem("assets_{$tmid}_{$clientId}")->load(function () use ($tmid, $clientId) {
+            return phore_http_request($this->tmacHost . "/v1/assets/$tmid/$clientId")->send()->getBodyJson();
         });
 
     }

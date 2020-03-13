@@ -169,12 +169,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/phore/phore-filesystem.git",
-                "reference": "9d26b0599c580577c453888a5fde9e0b4bf62bf7"
+                "reference": "c343e2ce9697ed03436d81feeeebbd8e9b9cd795"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phore/phore-filesystem/zipball/9d26b0599c580577c453888a5fde9e0b4bf62bf7",
-                "reference": "9d26b0599c580577c453888a5fde9e0b4bf62bf7",
+                "url": "https://api.github.com/repos/phore/phore-filesystem/zipball/c343e2ce9697ed03436d81feeeebbd8e9b9cd795",
+                "reference": "c343e2ce9697ed03436d81feeeebbd8e9b9cd795",
                 "shasum": ""
             },
             "require": {
@@ -208,7 +208,7 @@
             ],
             "description": "Acces files layer",
             "homepage": "http://infracamp.org/project/phore",
-            "time": "2019-11-29T11:23:50+00:00"
+            "time": "2020-03-12T22:47:17+00:00"
         },
         {
             "name": "phore/http-client",
@@ -573,12 +573,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/myclabs/DeepCopy.git",
-                "reference": "b2c28789e80a97badd14145fda39b545d83ca3ef"
+                "reference": "a491d65139e2411c75704e871dd02bdddf5a4bdc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/myclabs/DeepCopy/zipball/b2c28789e80a97badd14145fda39b545d83ca3ef",
-                "reference": "b2c28789e80a97badd14145fda39b545d83ca3ef",
+                "url": "https://api.github.com/repos/myclabs/DeepCopy/zipball/a491d65139e2411c75704e871dd02bdddf5a4bdc",
+                "reference": "a491d65139e2411c75704e871dd02bdddf5a4bdc",
                 "shasum": ""
             },
             "require": {
@@ -613,7 +613,7 @@
                 "object",
                 "object graph"
             ],
-            "time": "2020-01-17T21:11:47+00:00"
+            "time": "2020-03-12T21:49:07+00:00"
         },
         {
             "name": "phar-io/manifest",

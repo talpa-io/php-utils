@@ -1,0 +1,21 @@
+meta:
+  desc: M-tmock test machine
+  customer: ~
+  manufacturer: ~
+  type: ~
+  model: ~
+  serial_no: ~
+  indurad_id: ~
+  indurad_id_old: []
+  location: ~
+  arpHeight: ~
+  year_of_construction: ~
+  description: Just a testing endpoint for Cybus
+
+templates: []
+
+Test:
+  foo: bar
+
+client1:
+  key: val
