@@ -28,18 +28,34 @@ class MachineConfigTest extends TestCase
         $this->assertEquals("M-tmock1", $machineConfig->listAssets()[0]['tmid']);
     }
 
-    public function testExceptionListAssetsFromNonExistingClient()
+    public function testExceptionListAssetsFromUrlNonExistingClient()
     {
         $this->expectException(PhoreHttpRequestException::class);
         $machineConfig = new Tmac("http://localhost?clientId=fail");
-        $this->assertEquals("M-tmock1", $machineConfig->listAssets()[0]['tmid']);
+        $this->assertEquals("M-tmock", $machineConfig->listAssets()[0]['tmid']);
     }
 
-    public function testListAssetsFromExistingClient()
+    public function testListAssetsFromUrlExistingClient()
     {
         $machineConfig = new Tmac("http://localhost?clientId=Test");
-        $this->assertEquals("M-tmock1", $machineConfig->listAssets()[0]['tmid']);
-        $this->assertEquals("bar", $machineConfig->listAssets()[0]['foo']);
+        $assets = $machineConfig->listAssets();
+        $this->assertEquals("M-tmock", $assets[0]['tmid']);
+        $this->assertEquals("bar", $assets[0]['foo']);
+    }
+
+    public function testExceptionListAssetsFromLocalNonExistingClient()
+    {
+        $this->expectException(PhoreHttpRequestException::class);
+        $machineConfig = new Tmac("file:///opt/test/mock?clientId=fail");
+        $machineConfig->listAssets();
+    }
+
+    public function testListAssetsFromLocalExistingClient()
+    {
+        $machineConfig = new Tmac("file:///opt/test/mock?clientId=Test");
+        $assets = $machineConfig->listAssets();
+        $this->assertEquals("M-tmock", $assets[0]['tmid']);
+        $this->assertEquals("bar", $assets[0]['foo']);
     }
 
     public function testGetConfigLocalClient()
@@ -112,7 +128,7 @@ class MachineConfigTest extends TestCase
 
     public function testGetConfigLocalClientNoMeta()
     {
-        $machineConfig = new Tmac("file:///opt/test/mock?clientId=Test");
+        $machineConfig = new Tmac("file:///opt/test/mock/faultyConfigs?clientId=Test");
         $config = $machineConfig->getConfig("M-nometa");
         $this->assertEquals([], $config['meta']);
         $this->assertEquals('bar', $config['foo']);

@@ -69,6 +69,33 @@ class Tmac
      */
     public function listAssets(string $clientId = null) : array
     {
+        if($clientId === null){
+            $clientId=$this->clientId;
+        }
+        $allConfigs = [];
+        if ($this->localConfigPath !== null) {
+            $confFiles = phore_dir($this->localConfigPath)->getListSorted();
+            foreach ($confFiles as $confFile) {
+                $tmid = $confFile->getFilename();
+                try {
+                    $config = phore_file($this->localConfigPath . "/$tmid.yml")->get_yaml();
+                    $machineConfig = ["tmid" => $tmid, "meta" => $config["meta"]];
+                    if($clientId !== 'meta') {
+                        $machineConfig += $config[$this->clientId];
+                    }
+                    $allConfigs[] = $machineConfig;
+                } catch (\Exception $ex) {
+                    $errors[] = ["tmid" => $tmid, "error" => $ex->getMessage()];
+                    continue;
+                }
+            }
+            if(empty($allConfigs)) {
+                throw new PhoreHttpRequestException("Service '$clientId' not defined", null, 404);
+            }
+            return $allConfigs;
+            //return ["assets" => $allConfigs, "errors" => $errors];
+        }
+
         if($clientId === "meta") {
             return $this->cacheItemPool->getItem("list_assets")->load(function () {
                 return phore_http_request($this->tmacHost . "/v1/assets")->send()->getBodyJson()["assets"];

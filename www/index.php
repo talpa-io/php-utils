@@ -48,10 +48,12 @@ $app->router->get("/v1/assets/:tmid/:clientId", function (string $tmid, $clientI
 $app->router->get("/v1/assets", function (Request $request) {
     parse_str($request->queryString, $queryparams);
     $clientId = phore_pluck('service', $queryparams, "");
+    $tmac = new Tmac("file:///opt/test/mock?clientId=$clientId");
+    return ['assets' => $tmac->listAssets($clientId)];
     if(in_array($clientId, ['Test', ""])) {
         return phore_file("/opt/test/mock/allAssets$clientId.json")->get_json();
     }
-    throw new \Exception("Client '$clientId' not defined", 404);
+    //throw new \Exception("Client '$clientId' not defined", 404);
 });
 
 /**
