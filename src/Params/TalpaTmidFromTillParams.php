@@ -43,7 +43,7 @@ class TalpaTmidFromTillParams extends TalpaTmidParams
         $this->from = $phoreInput->toTimestampUtc($from);
 
         if($this->from > $this->till){
-            throw new \InvalidArgumentException("from: $from can´t be greater than till: $till");
+            throw new \InvalidArgumentException("from: '$from' must not be greater than till: '$till'");
         }
     }
 
