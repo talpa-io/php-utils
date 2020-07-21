@@ -71,6 +71,28 @@ class Tmac
         });
     }
 
+    /**
+     * Return array of TMIDs machting the pattern
+     *
+     * <example>
+     * $list = $m->getMatchingTmids("M12*");
+     * assert( ["M120", "M121"] === $m->getMatchingTmids("M12*") );
+     * </example>
+     *
+     * @param   string      $pattern fnmatch() like pattern
+     * @return  string[]    List of tmids
+     */
+    public function getMatchingTmids(string $pattern, string $service = null) : array
+    {
+        $tmids = [];
+        foreach ($this->listAssets($service) as $asset) {
+            if ( ! fnmatch($pattern, $asset["tmid"]))
+                continue;
+            $tmids[] = $asset["tmid"];
+        }
+        return $tmids;
+    }
+
 
     /**
      * Load the configuration of single asset
